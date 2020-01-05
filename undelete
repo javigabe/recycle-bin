@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import sys
+import utils
+import os
+from bin import RecycleBin
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('Wrong usage of this program')
+        sys.exit(0)
+
+    recycle_bin = RecycleBin(utils.get_bin_directory())
+
+    for filename in sys.argv[1:]:
+        filepath = os.path.join(os.getcwd(), filename)
+
+        if not recycle_bin.check_file(filepath):
+            print('File %s not found in bin' % filename)
+            continue
+
+        recycle_bin.undelete(filepath)
+        print('File %s was undeleted' % filename)

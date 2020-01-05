@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import utils
+import sys
+import os
+from bin import RecycleBin
+
+
+def print_results(files_and_versions):
+    print('You had %d files in this folder.' % len(files_and_versions))
+
+    for f, version in files_and_versions.items():
+        print('    -> %s with version %d' % (f, version))
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 1:
+        print 'Wrong usage of this program'
+        sys.exit(0)
+
+    recycle_bin = RecycleBin(utils.get_bin_directory())
+    print_results(recycle_bin.list(os.getcwd()))
