@@ -1,5 +1,3 @@
-hola sofia
-
 import glob
 import os
 import utils
