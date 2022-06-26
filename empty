@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import sys
+import utils
+from bin import RecycleBin
+import os
+
+if __name__ == '__main__':
+    if len(sys.argv) != 1:
+        print('Wrong usage.')
+        sys.exit(0)
+
+    recycle_bin = RecycleBin(utils.get_bin_directory())
+    recycle_bin.empty()
