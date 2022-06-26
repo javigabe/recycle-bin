@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import utils
 import sys
@@ -15,7 +15,7 @@ def print_results(files_and_versions):
 
 if __name__ == '__main__':
     if len(sys.argv) != 1:
-        print 'Wrong usage of this program'
+        print('Wrong usage of this program')
         sys.exit(0)
 
     recycle_bin = RecycleBin(utils.get_bin_directory())

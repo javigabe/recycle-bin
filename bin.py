@@ -81,6 +81,12 @@ class RecycleBin:
 
         os.remove(file_in_bin_with_version)
 
+    def empty(self):
+        path = self._calculate_path_inside_bin(os.getcwd())
+        for filename in os.listdir(path):
+            path_in_bin = os.path.join(path, filename)
+            os.remove(path_in_bin)
+
 
     def _recycle_bin_exists(self):
         return os.path.exists(self.path)
