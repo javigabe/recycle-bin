@@ -51,6 +51,9 @@ class RecycleBin:
         binpath = self._calculate_path_inside_bin(path)
         found_files = {}
 
+        if (not os.path.exists(binpath)):
+            return {}
+        
         for f in os.listdir(binpath):
             if os.path.isfile(os.path.join(binpath, f)):
                 filename = f[f.find('_')+1:]
